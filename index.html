@@ -5,16 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Momentum App</title>
+    <title>Random Number Game</title>
 
 </head>
 
 <body>
-    <form class="login-form hidden">
-        <input required maxlength="15" type="text" placeholder="What is your name?" />
-        <input type="submit" value="Log In" />
+    <h1>Random Number Game</h1>
+
+
+
+    <form class="Max-form">
+        <label for="Maxnumber">Generate a number between 0 and</label>
+        <input id="Maxnumber" required type="number" min="0" />
     </form>
-    <h1 id="greeting" class="hidden"></h1>
+    <form class="Guess-form">
+        <label for="guess">Guess the number:</label>
+        <input id="guess" type="number" min="0">
+        <input class="start" type="button" value="Play!">
+    </form>
+    <h4 class="hidden"></h4>
     <script src="app.js"></script>
 </body>
 

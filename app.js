@@ -1,28 +1,24 @@
-const loginForm = document.querySelector(".login-form");
-const loginInput = document.querySelector(".login-form input");
-const greeting = document.querySelector("#greeting");
+const Max = document.querySelector("#Maxnumber");
 
-const HIDDEN_CLASSNAME = "hidden";
-const USERNAME_KEY = "username";
+const Play = document.querySelector(".start");
+const score = document.querySelector(".hidden");
 
-function onLoginSubmit(event) {
+function rand(maxnumber) {
+  return Math.floor(Math.random() * (maxnumber + 1));
+}
+
+function PlayGame(event) {
+  const Guess = document.querySelector("#guess");
   event.preventDefault();
-  loginForm.classList.add(HIDDEN_CLASSNAME);
-  const username = loginInput.value;
-  localStorage.setItem(USERNAME_KEY, username);
-  paintGreeings(username);
+  if (Max.value == "" || Guess.value == "") {
+    return;
+  }
+  const maxnumber = Max.value;
+  const guessnumber = parseInt(Guess.value, 10);
+  const random = Math.ceil(Math.random() * maxnumber);
+  score.innerHTML = `You chose: ${
+    Guess.value
+  } , the machine chose: ${random}.<br />
+  <strong>${guessnumber === random ? "You won!" : "You lost!"}</strong>`;
 }
-
-function paintGreeings(username) {
-  greeting.innerText = `Hello ${username}`;
-  greeting.classList.remove(HIDDEN_CLASSNAME);
-}
-
-const savedUsername = localStorage.getItem(USERNAME_KEY);
-
-if (savedUsername === null) {
-  loginForm.classList.remove(HIDDEN_CLASSNAME);
-  loginForm.addEventListener("submit", onLoginSubmit);
-} else {
-  paintGreeings(savedUsername);
-}
+Play.addEventListener("click", PlayGame);

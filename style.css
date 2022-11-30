@@ -1,3 +1,11 @@
-.hidden {
-  display: none;
+form {
+  display: inline;
+}
+.Max-form {
+  display: block;
+  margin-bottom: 30px;
+}
+.Max-form label:first-child {
+  font-weight: 800;
+  font-size: large;
 }
