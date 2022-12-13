@@ -9,3 +9,6 @@ img {
   z-index: -1;
   opacity: 80%;
 }
+.hidden {
+  display: none;
+}
